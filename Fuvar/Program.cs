@@ -10,7 +10,7 @@ namespace Fuvar
     class Fuvar
     {
         public int taxi_id { get; set; }
-        public DateTime indulas { get; set; }
+        public string indulas { get; set; }
         public int idotartam { get; set; }
         public double tavolsag { get; set; }
         public double viteldij { get; set; }
@@ -20,7 +20,7 @@ namespace Fuvar
         {
             string[] t = sor.Split(';');
             taxi_id = int.Parse(t[0]);
-            indulas = DateTime.Parse(t[1]);
+            indulas = t[1];
             idotartam = int.Parse(t[2]);
             tavolsag = double.Parse(t[3]);
             viteldij = double.Parse(t[4]);
@@ -39,11 +39,11 @@ namespace Fuvar
                 fuvarok.Add(new Fuvar(sor));
             }
 
-            double bevetel = 0;
-
-
             Console.WriteLine($"3. feladat: {fuvarok.Count}");
-            Console.WriteLine($"4. feladat: 3 fuvar alatt: {fuvarok.Count}");
+
+
+            double bevetel = 0;
+            Console.WriteLine($"4. feladat: {0} fuvar alatt: {1}");
 
             Console.ReadKey();
         }
