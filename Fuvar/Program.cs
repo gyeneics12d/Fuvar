@@ -53,7 +53,7 @@ namespace Fuvar
                 }
 
             }
-            Console.WriteLine($"4.feladat: {db} fuvar alatt: {bevetel}");
+            Console.WriteLine($"4. feladat: {db} fuvar alatt: {bevetel}$");
 
             //5.
             int bankkártyás = 0;
@@ -69,8 +69,8 @@ namespace Fuvar
                     készpénz++;
                 }
             }
-
             //5. b
+            /*
             Dictionary<string, int> stat = new Dictionary<string, int>();
             foreach (var f in fuvarok)
             {
@@ -88,6 +88,16 @@ namespace Fuvar
             {
                 Console.WriteLine($"\t {s.Key}: {s.Value} fuvar");
             }
+            */
+            //5.c
+            Console.WriteLine("5. feladat:");
+            fuvarok
+                .GroupBy(x => x.fizetesmod)
+                .Select(g => new { fizetésmód = g.Key, db = g.Count() })
+                .ToList()
+                .ForEach(x => Console.WriteLine($"\t {x.fizetésmód}: {x.db} fuvar"));
+
+
             Console.ReadKey();
         }
     }
