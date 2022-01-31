@@ -51,10 +51,44 @@ namespace Fuvar
                     bevetel += f.viteldij + f.borravalo;
                     db++;
                 }
-                Console.WriteLine($"4.feladat: {db} fuvar alatt: {bevetel}");
 
-                Console.ReadKey();
             }
+            Console.WriteLine($"4.feladat: {db} fuvar alatt: {bevetel}");
+
+            //5.
+            int bankkártyás = 0;
+            int készpénz = 0;
+            foreach (var h in fuvarok)
+            {
+                if (h.fizetesmod == "bankkártyás")
+                {
+                    bankkártyás++;
+                }
+                if (h.fizetesmod == "készpénz")
+                {
+                    készpénz++;
+                }
+            }
+
+            //5. b
+            Dictionary<string, int> stat = new Dictionary<string, int>();
+            foreach (var f in fuvarok)
+            {
+                if (stat.ContainsKey(f.fizetesmod))
+                {
+                    stat[f.fizetesmod]++;
+                }
+                else
+                {
+                    stat.Add(f.fizetesmod, 1);
+                }
+            }
+            Console.WriteLine("5. feladat:");
+            foreach (var s in stat)
+            {
+                Console.WriteLine($"\t {s.Key}: {s.Value} fuvar");
+            }
+            Console.ReadKey();
         }
     }
 }
