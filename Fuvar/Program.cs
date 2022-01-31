@@ -41,11 +41,20 @@ namespace Fuvar
 
             Console.WriteLine($"3. feladat: {fuvarok.Count}");
 
-
+            //4.
             double bevetel = 0;
-            Console.WriteLine($"4. feladat: {0} fuvar alatt: {1}");
+            int db = 0;
+            foreach (var f in fuvarok)
+            {
+                if (f.taxi_id == 6185)
+                {
+                    bevetel += f.viteldij + f.borravalo;
+                    db++;
+                }
+                Console.WriteLine($"4.feladat: {db} fuvar alatt: {bevetel}");
 
-            Console.ReadKey();
+                Console.ReadKey();
+            }
         }
     }
 }
