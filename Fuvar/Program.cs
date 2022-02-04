@@ -107,6 +107,15 @@ namespace Fuvar
 
             Console.WriteLine("6. feladat: {0:0.00} km", osszMerfold*1.6);
 
+            //7
+
+            Fuvar leghosszabbFuvar = fuvarok.OrderBy(f => f.idotartam).Last();
+
+            Console.WriteLine($"\tFuvar hossza: {leghosszabbFuvar.idotartam} másodperc");
+            Console.WriteLine($"\tTaxi azonosító: {leghosszabbFuvar.taxi_id}");
+            Console.WriteLine($"\tMegtett távolság: {leghosszabbFuvar.tavolsag.ToString("F1")} km");
+            Console.WriteLine($"\tViteldíj: {leghosszabbFuvar.viteldij}$");
+
             Console.ReadKey();
         }
     }
