@@ -97,6 +97,15 @@ namespace Fuvar
                 .ToList()
                 .ForEach(x => Console.WriteLine($"\t {x.fizetésmód}: {x.db} fuvar"));
 
+            //6
+
+            double osszMerfold = 0;
+            foreach (var f in fuvarok)
+            {
+                osszMerfold += f.tavolsag;
+            }
+
+            Console.WriteLine("6. feladat: {0:0.00} km", osszMerfold*1.6);
 
             Console.ReadKey();
         }
